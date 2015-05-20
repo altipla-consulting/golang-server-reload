@@ -1,0 +1,25 @@
+{
+  "name": "golang-server-reload",
+  "version": "0.1.0",
+  "description": "Reloads a Go server when the code changes. Compatible with Gulp tasks and LiveReload",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/altipla-consulting/golang-server-reload.git"
+  },
+  "keywords": [
+    "golang",
+    "server",
+    "reload"
+  ],
+  "author": "Altipla Consulting",
+  "license": "BSD",
+  "bugs": {
+    "url": "https://github.com/altipla-consulting/golang-server-reload/issues"
+  },
+  "dependencies": {
+    "chalk": "^1.0.0",
+    "gulp-watch": "^4.2.4",
+    "http-proxy": "^1.11.1"
+  }
+}
