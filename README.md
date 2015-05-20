@@ -22,7 +22,11 @@ var gulp = require('gulp'),
     Server = require('golang-server-reload');
 
 gulp.task('serve', function() {
-  var server = new Server('github.com/example/mypackage');
+  // First argument is the package to build.
+  // Second argument is the folder where the Go sources are located
+  //   (it can be relative to the current gulpfile)
+  // Third argument is the server binary to run.
+  var server = new Server('github.com/example/mypackage', '/gopath/src/github.com/example/mypackage', '/gopath/bin/mypackage');
 
   // Optional: File to touch when the serve is ready to reload the page
   // using LiveReload or something similar.
