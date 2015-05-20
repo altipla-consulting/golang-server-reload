@@ -127,7 +127,7 @@ Server.prototype.runProcess_ = function() {
 
   if (filesChanged) {
     setImmediate(function() {
-      that.build();
+      that.build_();
     });
     return;
   }
