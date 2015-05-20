@@ -17,7 +17,7 @@ var Server = function(packageName, sourcesPath) {
   this.serverName_ = parts[parts.length - 1];
 
   this.envFn_ = function() { };
-  this.touchFile = null;
+  this.touchFile_ = null;
 
   this.filesChanged_ = false;
   this.building_ = true;
