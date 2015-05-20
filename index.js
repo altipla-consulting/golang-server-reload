@@ -165,7 +165,7 @@ Server.prototype.build_ = function() {
   var that = this;
 
   console.log(chalk.yellow('Compile go application...'));
-  exec('go install ' + packageName, function(err, stdout, stderr) {
+  exec('go install ' + this.packageName_, function(err, stdout, stderr) {
     that.buildError_ = null;
 
     // If there's a compilation error debug it and save it for later requests
