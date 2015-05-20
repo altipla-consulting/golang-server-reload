@@ -184,7 +184,7 @@ Server.prototype.build_ = function() {
       that.building_ = false;
 
       log(chalk.red('Build failed'));
-      log(stderr);
+      console.log(stderr + '\n');
 
       that.buildError_ = stderr;
 
