@@ -6,7 +6,17 @@ var childProcess = require('child_process'),
     httpProxy = require('http-proxy'),
     http = require('http'),
     chalk = require('chalk'),
-    watch = require('gulp-watch');
+    watch = require('gulp-watch'),
+    dateformat = require('dateformat');
+
+
+// Log function from gulp-util
+var log = function() {
+  var time = '[' + chalk.grey(dateformat(new Date(), 'HH:MM:ss')) + ']';
+  var args = Array.prototype.slice.call(arguments);
+  args.unshift(time);
+  console.log.apply(console, args);
+};
 
 
 var Server = function(packageName, sourcesPath) {
@@ -64,7 +74,7 @@ Server.prototype.serve = function(realPort, listenPort) {
   var proxy = httpProxy.createProxyServer();
 
   proxy.on('error', function(err) {
-    console.log(chalk.red(err));
+    log(chalk.red(err));
   });
 
   var server = http.createServer(function(req, res) {
@@ -122,7 +132,7 @@ Server.prototype.runProcess_ = function() {
     return;
   }
 
-  console.log(chalk.green('Build successful. Spawn server...'));
+  log(chalk.green('Build successful. Spawn server...'));
 
   this.runningProccess_ = spawn(process.env.GOPATH + '/bin/' + this.serverName_, [], {
     env: this.envFn_(),
@@ -165,7 +175,7 @@ Server.prototype.runProcess_ = function() {
 Server.prototype.build_ = function() {
   var that = this;
 
-  console.log(chalk.yellow('Compile go application...'));
+  log(chalk.yellow('Compile go application...'));
   exec('go install ' + this.packageName_, function(err, stdout, stderr) {
     that.buildError_ = null;
 
@@ -173,8 +183,8 @@ Server.prototype.build_ = function() {
     if (err && (err.code === 1 || err.code === 2)) {
       that.building_ = false;
 
-      console.log(chalk.red('Build failed'));
-      console.log(stderr);
+      log(chalk.red('Build failed'));
+      log(stderr);
 
       that.buildError_ = stderr;
 
@@ -194,7 +204,7 @@ Server.prototype.build_ = function() {
     }
 
     if (err) {
-      console.log(chalk.red('Exit code: ' + err.code));
+      log(chalk.red('Exit code: ' + err.code));
       throw err;
     }
 
