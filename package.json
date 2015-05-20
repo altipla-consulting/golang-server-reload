@@ -1,6 +1,6 @@
 {
   "name": "golang-server-reload",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "description": "Reloads a Go server when the code changes. Compatible with Gulp tasks and LiveReload",
   "main": "index.js",
   "repository": {
