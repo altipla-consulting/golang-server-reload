@@ -134,7 +134,7 @@ Server.prototype.runProcess_ = function() {
 
   log(chalk.green('Build successful. Spawn server...'));
 
-  this.runningProccess_ = spawn(process.env.GOPATH + '/bin/' + this.serverName_, [], {
+  this.runningProccess_ = spawn(this.serverName_, [], {
     env: this.envFn_(),
   });
 
