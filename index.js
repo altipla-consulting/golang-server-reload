@@ -19,12 +19,10 @@ var log = function() {
 };
 
 
-var Server = function(packageName, sourcesPath) {
+var Server = function(packageName, sourcesPath, serverName) {
   this.packageName_ = packageName;
   this.sourcesPath_ = sourcesPath;
-
-  var parts = packageName.split('.');
-  this.serverName_ = parts[parts.length - 1];
+  this.serverName_ = serverName;
 
   this.envFn_ = function() { };
   this.touchFile_ = null;
