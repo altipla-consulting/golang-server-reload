@@ -42,3 +42,13 @@ gulp.task('serve', function() {
   server.serve(12345, 8080);
 });
 ```
+
+
+### Contributing
+
+You can make pull requests or create issues in GitHub.
+
+
+### License
+
+[MIT License](LICENSE)
