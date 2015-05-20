@@ -159,7 +159,7 @@ Server.prototype.runProcess_ = function() {
   setTimeout(function() {
     if (that.filesChanged_) {
       setImmediate(function() {
-        that.build();
+        that.build_();
       });
       return;
     }
@@ -191,7 +191,7 @@ Server.prototype.build_ = function() {
       if (that.filesChanged_) {
         that.filesChanged_ = false;
         setImmediate(function() {
-          that.build();
+          that.build_();
         });
         return;
       }
@@ -211,7 +211,7 @@ Server.prototype.build_ = function() {
     if (that.filesChanged_) {
       that.filesChanged_ = false;
       setImmediate(function() {
-        that.build();
+        that.build_();
       });
       return;
     }
