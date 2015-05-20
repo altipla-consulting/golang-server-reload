@@ -125,7 +125,7 @@ Server.prototype.runProcess_ = function() {
     return;
   }
 
-  if (filesChanged) {
+  if (this.filesChanged_) {
     setImmediate(function() {
       that.build_();
     });
