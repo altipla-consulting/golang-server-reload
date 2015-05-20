@@ -9,8 +9,9 @@ var childProcess = require('child_process'),
     watch = require('gulp-watch');
 
 
-var Server = function(packageName) {
+var Server = function(packageName, sourcesPath) {
   this.packageName_ = packageName;
+  this.sourcesPath_ = sourcesPath;
 
   var parts = packageName.split('.');
   this.serverName_ = parts[parts.length - 1];
@@ -41,7 +42,7 @@ Server.prototype.serve = function(realPort, listenPort) {
 
   // Watch for changes in the source files
   var sources = [
-    this.packageName_ + '/**/*.go',
+    this.sourcesPath_ + '/**/*.go',
   ];
   watch(sources, function() {
     if (!that.building_) {
