@@ -13,7 +13,7 @@
     "reload"
   ],
   "author": "Altipla Consulting",
-  "license": "BSD",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/altipla-consulting/golang-server-reload/issues"
   },
