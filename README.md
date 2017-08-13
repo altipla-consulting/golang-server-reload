@@ -1,6 +1,8 @@
 
 # golang-server-reload
 
+> **DEPRECATED:** We recommend using https://github.com/skelterjohn/rerun instead
+
 Reloads a Go server when the code changes. Compatible with Gulp tasks and LiveReload.
 
 
